@@ -19,21 +19,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".ReceiverA" android:exported="false">
-            <intent-filter android:priority="10" >
-                <action android:name="my.same.named.receiver.action"/>
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".ReceiverB" android:exported="false">
-            <intent-filter android:priority="30" >
-                <action android:name="my.same.named.receiver.action"/>
-            </intent-filter>
-        </receiver>
-        <receiver android:name=".ReceiverC" android:exported="false">
-            <intent-filter android:priority="20" >
-                <action android:name="my.same.named.receiver.action"/>
-            </intent-filter>
-        </receiver>
+
     </application>
 
 </manifest>
