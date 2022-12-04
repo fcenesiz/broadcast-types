@@ -17,12 +17,19 @@ public class ReceiverA extends BroadcastReceiver {
     }
 
     private void usage2(){
+        if (!isOrderedBroadcast()) return;
+
         int code = getResultCode();
         String data = getResultData();
         Bundle bundle = getResultExtras(true);
-        String weather = bundle.getString("weather");
+        String window_state = bundle.getString("window_state");
 
-        String log = "code: " + code + ", result_data: " + data + ", weather: " + weather;
+        String log = "code: " + code + ", result_data: " + data + ", window_state: " + window_state;
         Log.i(TAG, log);
+
+        setResultCode(8);
+        setResultData("breath");
+        bundle.putString("breath_state", "take_a_deep_breath");
+        setResultExtras(bundle);
     }
 }

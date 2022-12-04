@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private ReceiverA receiverA = new ReceiverA();
     private ReceiverB receiverB = new ReceiverB();
     private ReceiverC receiverC = new ReceiverC();
+    private ReceiverD receiverD = new ReceiverD();
 
     ActivityMainBinding binding;
 
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void usage2(){ // send filled broadcast
         Bundle bundle = new Bundle();
-        bundle.putString("weather", "sunshine");
+        bundle.putString("state", "sunshine");
 
         Intent intent = new Intent(action);
         sendOrderedBroadcast(
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 null,
                 null,
                 RESULT_OK,
-                "myInitialData",
+                "weather",
                 bundle
         );
     }
@@ -67,11 +68,16 @@ public class MainActivity extends AppCompatActivity {
                 .addAction(action)
                 .setPriority(20)
                 .build());
+        registerReceiver(receiverD, new CustomIntentFilter.Builder()
+                .addAction(action)
+                .setPriority(5)
+                .build());
     }
     private void unRegisterReceivers(){
         unregisterReceiver(receiverA);
         unregisterReceiver(receiverB);
         unregisterReceiver(receiverC);
+        unregisterReceiver(receiverD);
     }
 
     @Override

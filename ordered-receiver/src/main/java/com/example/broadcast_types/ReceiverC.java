@@ -16,13 +16,20 @@ public class ReceiverC  extends BroadcastReceiver {
     }
 
     private void usage2(){
+        if (!isOrderedBroadcast()) return;
+
         int code = getResultCode();
         String data = getResultData();
         Bundle bundle = getResultExtras(true);
-        String weather = bundle.getString("weather");
+        String curtain_state = bundle.getString("curtain_state");
 
-        String log = "code: " + code + ", result_data: " + data + ", weather: " + weather;
+        String log = "code: " + code + ", result_data: " + data + ", curtain_state: " + curtain_state;
         Log.i(TAG, log);
+
+        setResultCode(7);
+        setResultData("window");
+        bundle.putString("window_state", "open");
+        setResultExtras(bundle);
     }
 
 }

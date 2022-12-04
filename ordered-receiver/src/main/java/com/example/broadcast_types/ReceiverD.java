@@ -7,14 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-public class ReceiverB  extends BroadcastReceiver {
-
-    public static final String TAG = ReceiverB.class.getSimpleName();
+public class ReceiverD  extends BroadcastReceiver {
+    public static final String TAG = ReceiverA.class.getSimpleName();
 
     @Override
     public void onReceive(Context context, Intent intent) {
         usage2();
-        Toast.makeText(context, ReceiverB.class.getSimpleName() + " was called", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, ReceiverA.class.getSimpleName() + " was called", Toast.LENGTH_SHORT).show();
     }
 
     private void usage2(){
@@ -23,14 +22,10 @@ public class ReceiverB  extends BroadcastReceiver {
         int code = getResultCode();
         String data = getResultData();
         Bundle bundle = getResultExtras(true);
-        String state = bundle.getString("state");
+        String breath_state = bundle.getString("breath_state");
 
-        String log = "code: " + code + ", result_data: " + data + ", state: " + state;
+        String log = "code: " + code + ", result_data: " + data + ", breath_state: " + breath_state;
         Log.i(TAG, log);
 
-        setResultCode(6);
-        setResultData("curtain");
-        bundle.putString("curtain_state", "open");
-        setResultExtras(bundle);
     }
 }
