@@ -1,8 +1,7 @@
 ## ordered-receiver
 
-``
-priority: to make a order between receivers with having same named actions
-``
+``priority:`` to make a order between receivers with having same named actions
+
 
 ```
 with usage2() method,
