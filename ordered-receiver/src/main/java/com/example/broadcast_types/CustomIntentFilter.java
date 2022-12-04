@@ -1,7 +1,6 @@
 package com.example.broadcast_types;
 
 import android.content.IntentFilter;
-
 import java.util.ArrayList;
 import java.util.List;
 

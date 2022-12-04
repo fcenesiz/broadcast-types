@@ -28,12 +28,30 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-
         binding.buttonRun.setOnClickListener(view ->{
-            Intent intent = new Intent(action);
-            sendOrderedBroadcast(intent, null);
+            this.usage2();
         });
+    }
+
+    private void usage1(){ // send empty broadcast
+        Intent intent = new Intent(action);
+        sendOrderedBroadcast(intent, null);
+    }
+
+    private void usage2(){ // send filled broadcast
+        Bundle bundle = new Bundle();
+        bundle.putString("weather", "sunshine");
+
+        Intent intent = new Intent(action);
+        sendOrderedBroadcast(
+                intent,
+                null,
+                null,
+                null,
+                RESULT_OK,
+                "myInitialData",
+                bundle
+        );
     }
 
     private void registerReceivers(){
@@ -50,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
                 .setPriority(20)
                 .build());
     }
-
     private void unRegisterReceivers(){
         unregisterReceiver(receiverA);
         unregisterReceiver(receiverB);
