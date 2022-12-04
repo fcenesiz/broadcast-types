@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         sendOrderedBroadcast(
                 intent,
                 null,
-                null,
+                receiverD, // result broadcast
                 null,
                 RESULT_OK,
                 "weather",

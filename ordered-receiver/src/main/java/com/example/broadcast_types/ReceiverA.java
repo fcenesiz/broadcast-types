@@ -31,5 +31,8 @@ public class ReceiverA extends BroadcastReceiver {
         setResultData("breath");
         bundle.putString("breath_state", "take_a_deep_breath");
         setResultExtras(bundle);
+
+        abortBroadcast(); // cuts the broadcast (receiverD will not work)
+
     }
 }
