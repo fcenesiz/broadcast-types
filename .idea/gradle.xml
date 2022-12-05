@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/dynamic-receiver" />
             <option value="$PROJECT_DIR$/ordered-receiver" />
+            <option value="$PROJECT_DIR$/sticky-broadcast" />
           </set>
         </option>
       </GradleProjectSettings>
