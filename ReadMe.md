@@ -85,3 +85,8 @@ override fun onReceive(context: Context?, intent: Intent?) {
         localBroadcastManager.sendBroadcast(returning)
     }
 ````
+
+Manifest:
+`````xml
+<receiver android:name=".MyReceiver"/>
+`````
