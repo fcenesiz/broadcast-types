@@ -10,3 +10,4 @@ rootProject.name = "broadcast-types"
 include ':ordered-receiver'
 include ':dynamic-receiver'
 include ':sticky-broadcast'
+include ':local-receiver'
