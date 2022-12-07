@@ -33,3 +33,10 @@ override fun onPause() {
     unregisterReceiver(myTimeTickReceiver)
 }
 ```
+
+## sticky-broadcast
+!Deprecated ```sendStickyBroadcast()```
+
+sticky broadcasts are a special type of broadcast for which the sent intent object(s) remains in the cache after the broadcast is complete.
+
+Custom sticky broadcasts should not be used. They provide no security (anyone can access them), no protection (anyone can modify them), and many other problems. The recommended pattern is to use a non-sticky broadcast to report that something has changed, with another mechanism for apps to retrieve the current value whenever desired.
